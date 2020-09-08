@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 const readline = require("readline");
 const rl = readline.createInterface({
     input: process.stdin,
@@ -142,3 +141,5 @@ function declareWinner(winner) {
     rl.write(`Player ${winner} is the winner!`);
     rl.close();
 }
+
+exports.checkValidPosition = checkValidPosition;
