@@ -23,4 +23,34 @@ describe('index.js tests', function () {
       expect(result).to.equal(false);
     });
   });
+  describe('checkVictory() Test',function () {
+    let tictactoeBoard = [['-','-','-']
+                         ,['-','-','-']
+                         ,['-','-','-']];
+    it('should return false', function () {
+      const result = index.checkVictory(tictactoeBoard);
+      expect(result).to.equal(false);
+    });
+    it('should return true', function () {
+      tictactoeBoard = [['X','-','-']
+                       ,['-','X','-']
+                       ,['-','-','X']];
+      const result = index.checkVictory(tictactoeBoard);
+      expect(result).to.equal(true);
+    });
+    it('should return true', function () {
+      tictactoeBoard = [['-','-','-']
+                       ,['O','O','O']
+                       ,['-','-','-']];
+      const result = index.checkVictory(tictactoeBoard);
+      expect(result).to.equal(true);
+    });
+    it('should return false', function () {
+      tictactoeBoard = [['X','-','-']
+                       ,['O','X','O']
+                       ,['X','-','O']];
+      const result = index.checkVictory(tictactoeBoard);
+      expect(result).to.equal(false);
+    });
+  });
 });

@@ -5,7 +5,9 @@ const rl = readline.createInterface({
 });
 
 var totalMoves = 1;
-var tictactoeBoard = [['-','-','-'],['-','-','-'],['-','-','-']];
+var tictactoeBoard = [['-','-','-']
+                     ,['-','-','-']
+                     ,['-','-','-']];
 
 printBoard();
 playerOne();
@@ -41,7 +43,7 @@ function playerOne() {
             updateBoard(position, 1);
             if (totalMoves === 9) {
                 forceEndGame(1);
-            } else if (checkVictory()) {
+            } else if (checkVictory(tictactoeBoard)) {
                 declareWinner(1);
             } else {
                 totalMoves++;
@@ -61,7 +63,7 @@ function playerTwo() {
             updateBoard(position, 2);
             if (totalMoves === 9) {
                 forceEndGame(2);
-            } else if (checkVictory()) {
+            } else if (checkVictory(tictactoeBoard)) {
                 declareWinner(2);
             } else {
                 totalMoves++;
@@ -97,7 +99,7 @@ function checkValidPosition(position) {
     return valid;
 }
 
-function checkVictory() {
+function checkVictory(tictactoeBoard) {
     let victory = false;
 
     if (tictactoeBoard[0][0] !== '-' && tictactoeBoard[0][0] === tictactoeBoard[0][1] && tictactoeBoard[0][0] === tictactoeBoard[0][2]) {
@@ -129,7 +131,7 @@ function checkVictory() {
 }
 
 function forceEndGame(lastPlayer) {
-    if (checkVictory()) {
+    if (checkVictory(tictactoeBoard)) {
         declareWinner(lastPlayer);
     } else {
         rl.write("Tie! Game Over");
@@ -143,3 +145,4 @@ function declareWinner(winner) {
 }
 
 exports.checkValidPosition = checkValidPosition;
+exports.checkVictory = checkVictory;
