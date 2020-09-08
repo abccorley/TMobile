@@ -6,8 +6,25 @@ const rl = readline.createInterface({
 });
 
 var totalMoves = 1;
+var tictactoeBoard = [['-','-','-'],['-','-','-'],['-','-','-']];
 
+updateBoard();
 playerOne();
+
+function updateBoard(position) {
+    if (position) {
+        console.log("position passed");
+    }
+    for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+            rl.write(tictactoeBoard[row][col]);
+            if (col !== 2) {
+                rl.write(",");
+            }
+        }
+        rl.write("\n");
+    }
+}
 
 function playerOne() {
     rl.question("Player 1, enter a position\n", function(position) {
@@ -17,6 +34,8 @@ function playerOne() {
             declareWinner(1);
         } else {
             totalMoves++;
+            rl.write("\n");
+            updateBoard(position);
             playerTwo();
         }
     });
@@ -30,6 +49,8 @@ function playerTwo() {
             declareWinner(2);
         } else {
             totalMoves++;
+            rl.write("\n");
+            updateBoard(position);
             playerOne();
         }
     });
