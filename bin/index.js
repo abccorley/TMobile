@@ -11,7 +11,9 @@ playerOne();
 
 function playerOne() {
     rl.question("Player 1, enter a position\n", function(position) {
-        if (totalMoves >= 5 && checkVictory()) {
+        if (totalMoves === 9) {
+            forceEndGame(1);
+        } else if (totalMoves >= 5 && checkVictory()) {
             declareWinner(1);
         } else {
             totalMoves++;
@@ -22,7 +24,9 @@ function playerOne() {
 
 function playerTwo() {
     rl.question("Player 2, enter a position\n", function(position) {
-        if (totalMoves >= 5 && checkVictory()) {
+        if (totalMoves === 9) {
+            forceEndGame(2);
+        } else if (totalMoves >= 5 && checkVictory()) {
             declareWinner(2);
         } else {
             totalMoves++;
@@ -33,6 +37,15 @@ function playerTwo() {
 
 function checkVictory() {
     return true;
+}
+
+function forceEndGame(lastPlayer) {
+    if (checkVictory()) {
+        declareWinner(lastPlayer);
+    } else {
+        rl.write("Tie! Game Over");
+        rl.close();
+    }
 }
 
 function declareWinner(winner) {
