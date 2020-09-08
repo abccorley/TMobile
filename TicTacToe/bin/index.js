@@ -62,7 +62,7 @@ function playerTwo() {
         } else {
             updateBoard(position, 2);
             if (totalMoves === 9) {
-                forceEndGame(2);
+                forceEndGame(2, tictactoeBoard);
             } else if (checkVictory(tictactoeBoard)) {
                 declareWinner(2);
             } else {
@@ -130,7 +130,7 @@ function checkVictory(tictactoeBoard) {
     return victory;
 }
 
-function forceEndGame(lastPlayer) {
+function forceEndGame(lastPlayer, tictactoeBoard) {
     if (checkVictory(tictactoeBoard)) {
         declareWinner(lastPlayer);
     } else {

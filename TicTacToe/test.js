@@ -29,28 +29,28 @@ describe('index.js tests', function () {
                          ,['-','-','-']];
     it('should return false', function () {
       const result = index.checkVictory(tictactoeBoard);
-      expect(result).to.equal(false);
+      expect(result).to.be.false;
     });
     it('should return true', function () {
       tictactoeBoard = [['X','-','-']
                        ,['-','X','-']
                        ,['-','-','X']];
       const result = index.checkVictory(tictactoeBoard);
-      expect(result).to.equal(true);
+      expect(result).to.be.true;
     });
     it('should return true', function () {
       tictactoeBoard = [['-','-','-']
                        ,['O','O','O']
                        ,['-','-','-']];
       const result = index.checkVictory(tictactoeBoard);
-      expect(result).to.equal(true);
+      expect(result).to.be.true;
     });
     it('should return false', function () {
       tictactoeBoard = [['X','-','-']
                        ,['O','X','O']
                        ,['X','-','O']];
       const result = index.checkVictory(tictactoeBoard);
-      expect(result).to.equal(false);
+      expect(result).to.be.false;
     });
   });
 });
