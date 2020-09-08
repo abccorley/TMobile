@@ -1,0 +1,19 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "tic tac toe test app",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "E:\\Desktop\\TMobile"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^6.1.0",
+    "node-fetch": "^2.6.1"
+  }
+}
