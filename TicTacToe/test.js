@@ -3,23 +3,23 @@ const index = require('./bin/index');
 describe('index.js tests', function () {
   describe('checkValidPosition() Test', function () {
     it('should return true', function () {
-      const result = index.checkValidPosition('1,1');
+      let result = index.checkValidPosition('1,1');
       expect(result).to.equal(true);
     });
     it('should return false', function () {
-      const result = index.checkValidPosition('1.1');
+      let result = index.checkValidPosition('1.1');
       expect(result).to.equal(false);
     });
     it('should return false', function () {
-      const result = index.checkValidPosition('1,4');
+      let result = index.checkValidPosition('1,4');
       expect(result).to.equal(false);
     });
     it('should return false', function () {
-      const result = index.checkValidPosition('4,1');
+      let result = index.checkValidPosition('4,1');
       expect(result).to.equal(false);
     });
     it('should return false', function () {
-      const result = index.checkValidPosition('1');
+      let result = index.checkValidPosition('1');
       expect(result).to.equal(false);
     });
   });
@@ -28,28 +28,28 @@ describe('index.js tests', function () {
                          ,['-','-','-']
                          ,['-','-','-']];
     it('should return false', function () {
-      const result = index.checkVictory(tictactoeBoard);
+      let result = index.checkVictory(tictactoeBoard);
       expect(result).to.be.false;
     });
     it('should return true', function () {
       tictactoeBoard = [['X','-','-']
                        ,['-','X','-']
                        ,['-','-','X']];
-      const result = index.checkVictory(tictactoeBoard);
+      let result = index.checkVictory(tictactoeBoard);
       expect(result).to.be.true;
     });
     it('should return true', function () {
       tictactoeBoard = [['-','-','-']
                        ,['O','O','O']
                        ,['-','-','-']];
-      const result = index.checkVictory(tictactoeBoard);
+      let result = index.checkVictory(tictactoeBoard);
       expect(result).to.be.true;
     });
     it('should return false', function () {
       tictactoeBoard = [['X','-','-']
                        ,['O','X','O']
                        ,['X','-','O']];
-      const result = index.checkVictory(tictactoeBoard);
+      let result = index.checkVictory(tictactoeBoard);
       expect(result).to.be.false;
     });
   });
